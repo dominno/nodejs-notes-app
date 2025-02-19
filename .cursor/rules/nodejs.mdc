@@ -1,0 +1,53 @@
+---
+description: Notes To-Do App
+globs: 
+---
+
+# **📌 Cursor AI Rules for Secure Notes To-Do App**
+
+## **1️⃣ General Rules**
+✅ Enforce **TypeScript** for type safety in both backend (Node.js) and frontend (Next.js).  
+✅ Use **ESLint and Prettier** to ensure consistent coding style.  
+✅ Follow the **MVC pattern** for backend architecture.  
+✅ Use **environment variables (`.env`)** to store sensitive data.  
+
+---
+
+## **2️⃣ Backend (Node.js, Express, Prisma, PostgreSQL)**
+✅ **Use Prisma ORM** – No raw SQL queries to prevent SQL injection.  
+✅ **API routes must be RESTful** – Follow standard naming conventions (`/api/notes`, `/api/auth`).  
+✅ **Input validation is required** – Use `express-validator` to sanitize and validate user input.  
+✅ **Error handling middleware** must catch all errors and return proper HTTP status codes.  
+✅ **Authentication must use JWT (HttpOnly cookies)** – No local storage for tokens.  
+✅ **Rate Limiting** – Apply `express-rate-limit` to prevent abuse.  
+✅ **Logging** – Use `winston` or `pino` for logging API requests and errors.  
+
+---
+
+## **3️⃣ Frontend (Next.js, React, Tailwind)**
+✅ **Use Server Components for static data** and Client Components for interactive elements.  
+✅ **State Management** – Prefer React hooks (`useState`, `useReducer`, `useContext`).  
+✅ **Forms must be protected against XSS & CSRF** – Sanitize input, escape output, and use CSRF tokens.  
+✅ **Error messages should be user-friendly** – No raw server error messages displayed.  
+✅ **Use SWR or React Query** for data fetching instead of direct API calls in components.  
+✅ **Protect sensitive routes** – Redirect unauthenticated users to the login page.  
+
+---
+
+## **4️⃣ Security Best Practices**
+✅ **SQL Injection Prevention** – Use **Prisma ORM** instead of raw SQL queries.  
+✅ **XSS Prevention** – Escape user input & use `sanitize-html`.  
+✅ **CSRF Protection** – Implement `csurf` middleware in the backend.  
+✅ **Clickjacking Prevention** – Use `helmet` with `X-Frame-Options: DENY`.  
+✅ **Use strong password hashing** – Use `bcrypt` with at least 10 salt rounds.  
+✅ **CORS Policy** – Restrict allowed origins, headers, and methods.  
+
+---
+
+## **5️⃣ Deployment & CI/CD**
+✅ Use **Docker** to containerize the app.  
+✅ **Use GitHub Actions** for CI/CD to test and deploy the application.  
+✅ **Database migrations must be automated** – Use Prisma migrations.  
+✅ **Production logging should not expose sensitive data**.  
+✅ **Use `.env` for secrets** – Never commit secrets to Git.  
+
