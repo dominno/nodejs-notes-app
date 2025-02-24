@@ -1,6 +1,7 @@
 # Secure Notes Application
 
-A secure note-taking application built with Node.js, Next.js, and PostgreSQL.
+A secure note-taking application built with Node.js, Next.js, and PostgreSQL. This full-stack web application allows users to create, read, update and delete notes in a secure environment. Features include user authentication, encrypted data storage, real-time updates, and a responsive UI. The backend uses Express.js and Prisma ORM for robust database operations, while the frontend leverages Next.js and Tailwind CSS for a modern user experience. Security measures include JWT authentication, CSRF protection, XSS prevention, and secure password hashing.
+
 
 ## 🚀 Quick Start
 
